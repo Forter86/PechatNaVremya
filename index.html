@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypingTest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Lexend+Deca:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=9">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <svg class="brand__icon" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M8 10c0-3 2.5-5.5 5.5-5.5h3v4h-2.5c-1.1 0-2 .9-2 2v17c0 1.1.9 2 2 2h2.5v4h-3C10.5 33.5 8 31 8 28V10z"/>
+          <path d="M32 10c0-3-2.5-5.5-5.5-5.5h-3v4h2.5c1.1 0 2 .9 2 2v17c0 1.1-.9 2-2 2h-2.5v4h3c3 0 5.5-2.5 5.5-5.5V10z"/>
+          <rect x="18.5" y="8" width="3" height="24" rx="1"/>
+        </svg>
+        <span class="brand__title">TypingTest</span>
+      </div>
+      <a class="powered" href="https://fish-text.ru/" target="_blank" rel="noopener noreferrer" title="РыбаТекст">
+        <span class="powered__label">powered by</span>
+        <img class="powered__logo" src="Logo/Riba.png" alt="РыбаТекст">
+        <span class="powered__name">РыбаТекст</span>
+      </a>
+    </header>
+
+    <main class="main">
+      <div class="config-bar" id="config-bar" role="group" aria-label="Настройки теста">
+        <div class="config-bar__modes">
+          <button type="button" class="config-btn is-active" data-mode="time" id="mode-time">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Время
+          </button>
+          <button type="button" class="config-btn" data-mode="words" id="mode-words">
+            <span class="config-btn__letter">A</span>
+            Слова
+          </button>
+        </div>
+        <div class="config-bar__divider" aria-hidden="true"></div>
+        <div class="config-bar__values" id="value-options"></div>
+      </div>
+
+      <section id="screen-menu" class="screen screen--menu">
+        <button type="button" class="btn btn--primary" id="btn-start">
+          Начать тест
+          <span class="btn__chevron" aria-hidden="true">›</span>
+        </button>
+      </section>
+
+      <section id="screen-test" class="screen screen--test is-hidden">
+        <div class="progress" id="progress" aria-live="polite">60</div>
+        <div class="words-wrap" id="words-wrap">
+          <div class="words" id="words"></div>
+          <input
+            type="text"
+            id="typing-input"
+            class="typing-input"
+            autocomplete="off"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+            aria-label="Поле ввода текста"
+          >
+        </div>
+        <button type="button" class="btn btn--ghost" id="btn-restart-test">
+          Заново
+          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5V2L8 6l4 4V7c3.3 0 6 2.7 6 6a6 6 0 1 1-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </section>
+
+      <section id="screen-results" class="screen screen--results is-hidden">
+        <div class="stats" id="stats">
+          <div class="stat">
+            <span class="stat__label">тип теста</span>
+            <span class="stat__value" id="stat-type">время 60</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">cpm</span>
+            <span class="stat__value" id="stat-cpm">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">точность</span>
+            <span class="stat__value" id="stat-accuracy">0%</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">символы</span>
+            <span class="stat__value" id="stat-chars">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">ошибки</span>
+            <span class="stat__value" id="stat-errors">0</span>
+          </div>
+        </div>
+        <div class="results-actions">
+          <button type="button" class="btn btn--ghost" id="btn-restart-results">
+            Заново
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 5V2L8 6l4 4V7c3.3 0 6 2.7 6 6a6 6 0 1 1-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button type="button" class="btn btn--primary" id="btn-next">
+            Следующий тест
+            <span class="btn__chevron" aria-hidden="true">›</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="texts.js?v=9"></script>
+  <script src="app.js?v=9"></script>
+</body>
+</html>
